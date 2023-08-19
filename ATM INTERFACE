@@ -1,1 +1,38 @@
+import java.util.Scanner;
 
+public class WordCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Word Counter");
+        System.out.println("1. Enter text manually");
+        System.out.println("2. Provide a file");
+
+        System.out.print("Choose an option (1/2): ");
+        int option = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        String inputText = "";
+
+        switch (option) {
+            case 1:
+                System.out.print("Enter the text: ");
+                inputText = scanner.nextLine();
+                break;
+            case 2:
+                System.out.print("Enter the file name: ");
+                String fileName = scanner.nextLine();
+                // Read file contents and store in inputText
+                // You need to implement file reading here
+                break;
+            default:
+                System.out.println("Invalid option.");
+                System.exit(1);
+        }
+
+        String[] words = inputText.split("[\\s\\p{Punct}]+");
+        int wordCount = words.length;
+
+        System.out.println("Total words: " + wordCount);
+    }
+}
